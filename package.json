@@ -1,0 +1,49 @@
+{
+	"name": "@kualat/mcp",
+	"version": "1.0.0",
+	"description": "Model Context Protocol server for kua.lat: shorten links, read click statistics, and manage webhook subscriptions from an AI assistant.",
+	"keywords": [
+		"mcp",
+		"model-context-protocol",
+		"kualat",
+		"url-shortener",
+		"short-links",
+		"ai"
+	],
+	"license": "MIT",
+	"homepage": "https://kua.lat",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kualatLinks/mcp-kualat.git"
+	},
+	"bugs": {
+		"url": "https://github.com/kualatLinks/mcp-kualat/issues"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"bin": {
+		"kualat-mcp": "dist/cli.js"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"lint": "tsc --noEmit",
+		"check": "npm run build && node tests/smoke.js",
+		"prepublishOnly": "npm run lint && npm run check"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.32.2",
+		"zod": "^4.6.7"
+	},
+	"devDependencies": {
+		"@types/node": "^20.19.43",
+		"typescript": "^5.5.4"
+	}
+}
